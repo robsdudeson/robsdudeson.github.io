@@ -1,7 +1,39 @@
 # Jekyll Config
 # https://jekyllrb.com/docs/configuration/
 
+title: robdudeson's homepage
 description: Bookmark this to keep an eye on my project updates!
+
+author:
+  name: "Robby"
+  email: "robsdudeson@gmail.com"
+  url: "https://robsdudeson.github.io"
+
+baseurl: /
+future: true
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-paginate
+
+# jekyll-remote-theme
+remote_theme: pages-themes/hacker@v0.2.0
+
+# jekyll-paginate
+source: .
+destination: ./_site
+# permalink: /:title
+paginate: 3
+paginate_path: /page/:num/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
 gist:
   noscript: false
 highlighter: rouge
@@ -10,8 +42,4 @@ kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
 lsi: false
-plugins:
-  - jekyll-remote-theme
-remote_theme: pages-themes/hacker@v0.2.0
 safe: true
-title: robdudeson's homepage
