@@ -11,5 +11,4 @@ kramdown:
   syntax_highlighter: rouge
 lsi: false
 safe: true
-theme: jekyll-theme-minimal
 title: robdudeson's homepage
