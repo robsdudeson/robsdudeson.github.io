@@ -10,5 +10,8 @@ kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
 lsi: false
+plugins:
+  - jekyll-remote-theme
+remote_theme: pages-themes/hacker@v0.2.0
 safe: true
 title: robdudeson's homepage
