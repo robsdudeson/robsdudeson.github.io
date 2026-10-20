@@ -25,7 +25,8 @@ nix develop --command ./bin/verify
 
 The verification command installs missing Bundler dependencies and builds the
 site with strict front matter. Run it after changing posts, layouts,
-configuration, or assets.
+configuration, or assets. CI uses the same command and the committed
+`Gemfile.lock`.
 
 For a local preview:
 
@@ -37,5 +38,7 @@ nix develop --command bundle exec jekyll serve
 
 - Inspect `git status` before editing and keep unrelated changes intact.
 - Run `git diff --check` before committing.
-- A push to `origin` publishes to the public GitHub Pages site. Scan outbound
-  content for personal or sensitive details before pushing.
+- A push to `main` runs `.github/workflows/pages.yml`; successful builds deploy
+  the `_site` artifact to the public GitHub Pages site. Pull requests build but
+  do not deploy.
+- Scan outbound content for personal or sensitive details before pushing.
