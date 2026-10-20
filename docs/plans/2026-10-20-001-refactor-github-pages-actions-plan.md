@@ -1,7 +1,7 @@
 ---
 title: "refactor: migrate GitHub Pages deployment to Actions"
 type: refactor
-status: active
+status: complete
 date: 2026-10-20
 ---
 
@@ -202,7 +202,7 @@ warning.
 
 ---
 
-- [ ] U3. **Switch the repository's Pages source and validate rollout**
+- [x] U3. **Switch the repository's Pages source and validate rollout**
 
 **Goal:** Move the live site from legacy branch publishing to GitHub Actions
 without an availability or URL regression.
@@ -269,6 +269,9 @@ legacy dynamic `pages-build-deployment` run no longer handles site builds.
   annotations, artifact contents, the published URLs, and the Pages settings.
 - Keep the existing public-push scan before pushes; CI artifact isolation is
   additional protection, not a substitute for content review.
+- **Completed rollout:** run `39455578218` built and deployed successfully after
+  the Pages source switched to GitHub Actions. The public homepage and the
+  existing Blu-ray post permalink remained reachable.
 
 ---
 
