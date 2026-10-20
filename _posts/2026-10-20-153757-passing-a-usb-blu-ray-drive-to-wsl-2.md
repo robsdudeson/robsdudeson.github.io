@@ -4,6 +4,7 @@ title: Passing a USB Blu-ray Drive to WSL 2
 date: 2026-10-20
 tags: wsl windows usbipd bluray linux
 published: true
+permalink: /2026/10/20/passing-a-usb-blu-ray-drive-to-wsl-2.html
 ---
 
 # Passing a USB Blu-ray Drive to WSL 2

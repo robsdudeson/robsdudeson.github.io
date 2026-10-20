@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "json"
+require "optparse"
+
+options = { published: false }
+parser = OptionParser.new do |opts|
+  opts.banner = "Usage: bin/new-post [--published] TITLE"
+  opts.on("--published", "Create a published post instead of a draft") do
+    options[:published] = true
+  end
+end
+
+parser.parse!
+title = ARGV.join(" ").strip
+abort parser.to_s if title.empty?
+
+slug = title.downcase
+            .gsub(/[^[:alnum:]]+/, "-")
+            .gsub(/\A-|-\z/, "")
+abort "Title must contain at least one letter or number." if slug.empty?
+
+created_at = Time.now
+path = nil
+loop do
+  timestamp = created_at.strftime("%Y-%m-%d-%H%M%S")
+  path = File.join("_posts", "#{timestamp}-#{slug}.md")
+  break unless File.exist?(path)
+
+  created_at += 1
+end
+
+File.write(path, <<~MARKDOWN)
+  ---
+  layout: post
+  title: #{title.to_json}
+  date: #{created_at.strftime("%Y-%m-%d %H:%M:%S %z")}
+  tags: []
+  published: #{options[:published]}
+  ---
+
+  # #{title}
+MARKDOWN
+
+puts "Created #{path}"

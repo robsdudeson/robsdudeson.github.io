@@ -5,17 +5,18 @@ The source for [robsdudeson.github.io](https://robsdudeson.github.io), built wit
 
 ## Write a post
 
-Add a Markdown file to `_posts/` using the name `YYYY-MM-DD-slug.md`. Include
-Jekyll front matter:
+Create a draft post with:
 
-```yaml
----
-layout: post
-title: A clear title
-date: 2026-10-20
-tags: example
-published: true
----
+```sh
+nix develop --command ./bin/new-post "A clear title"
+```
+
+The generator creates `_posts/YYYY-MM-DD-HHmmss-slug.md`. The 24-hour timestamp
+avoids same-day filename collisions. Pass `--published` only when the post is
+ready for the public site:
+
+```sh
+nix develop --command ./bin/new-post --published "A clear title"
 ```
 
 ## Develop locally
