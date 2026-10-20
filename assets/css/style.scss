@@ -36,3 +36,51 @@
 .archive-link {
   margin-top: 2rem;
 }
+
+#header nav ul {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+#header nav ul li.fork {
+  float: none;
+  margin-left: auto;
+}
+
+#header nav ul li a[aria-current="page"] {
+  background: #527f0e;
+  border-color: #527f0e;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+@media print, screen and (max-width: 480px) {
+  #header {
+    height: auto;
+    margin-top: 0;
+    position: static;
+  }
+
+  #header nav {
+    display: block;
+  }
+
+  #header nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.4rem 0;
+  }
+
+  #header nav ul li.fork {
+    margin-left: 0;
+  }
+
+  #header nav ul li a {
+    margin-top: 0;
+    padding: 8px 10px;
+  }
+
+  section {
+    margin-top: 20px;
+  }
+}
