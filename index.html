@@ -1,15 +1,27 @@
 ---
 layout: default
-title: robsdudeson's homepage
+title: robdudeson's homepage
 ---
 
-<h2>Some jucy blog posts</h2>
-<ul>
-    {% for post in paginator.posts %}
-      <li>
-          <h2><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h2>
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
-          <p>{{ post.content | strip_html | truncatewords:50 }}</p>
-      </li>
-    {% endfor %}
-</ul>
+<main class="home">
+  <header class="home-intro">
+    <h2>{{ site.home.heading }}</h2>
+    <p>{{ site.home.intro }}</p>
+  </header>
+
+  <section aria-labelledby="recent-posts-heading">
+    <h2 id="recent-posts-heading">Recent writing</h2>
+    <ul class="post-list">
+      {% for post in site.posts limit: site.home.recent_posts_count %}
+        <li>
+          <article>
+            <h3><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h3>
+            <p class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></p>
+            <p>{{ post.content | strip_html | truncatewords:50 }}</p>
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+    <p class="archive-link"><a href="{{ '/blog/' | relative_url }}">Read all posts</a></p>
+  </section>
+</main>

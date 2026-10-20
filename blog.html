@@ -1,0 +1,29 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<main class="blog-archive">
+  <header class="archive-intro">
+    <h2>Blog</h2>
+    <p>Notes, experiments, and project updates.</p>
+  </header>
+
+  <section aria-labelledby="all-posts-heading">
+    <h2 id="all-posts-heading">All posts</h2>
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li>
+          <article>
+            <h3><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h3>
+            <p class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></p>
+            <p>{{ post.content | strip_html | truncatewords:50 }}</p>
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <p class="archive-link"><a href="{{ '/' | relative_url }}">Back to homepage</a></p>
+</main>

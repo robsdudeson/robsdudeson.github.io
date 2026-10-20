@@ -12,8 +12,9 @@ nix develop --command ./bin/new-post "A clear title"
 ```
 
 The generator creates `_posts/YYYY-MM-DD-HHmmss-slug.md`. The 24-hour timestamp
-avoids same-day filename collisions. Pass `--published` only when the post is
-ready for the public site:
+avoids same-day filename collisions. Published posts appear in the recent
+writing section on `/` and in the full archive at `/blog/`. Pass `--published`
+only when the post is ready for the public site:
 
 ```sh
 nix develop --command ./bin/new-post --published "A clear title"
@@ -29,7 +30,8 @@ nix develop --command bundle exec jekyll serve
 ```
 
 The first command installs missing Ruby dependencies and builds the site. The
-second starts a local preview server.
+second starts a local preview server. Configure the homepage introduction and
+recent-post count in `_config.yml` under `home`.
 
 ## Deployment
 

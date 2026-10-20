@@ -9,7 +9,8 @@ includes, configuration, and assets follow Jekyll's standard directory layout.
 
 - Do not edit `_site/`; Jekyll generates it.
 - Create a post with `nix develop --command ./bin/new-post "Title"`. It creates `_posts/YYYY-MM-DD-HHmmss-slug.md`; the 24-hour timestamp prevents same-day collisions.
-- Add `--published` only when the post is ready for the public site. The generator creates drafts by default.
+- Add `--published` only when the post is ready for the public site. The generator creates drafts by default; published posts appear on `/` and `/blog/`.
+- Configure the homepage introduction and recent-post count in `_config.yml` under `home`.
 - Keep post commands generic. Do not publish personal paths, device names, IP
   addresses, hostnames, account names, or credentials.
 - Preserve the site's existing Jekyll and Markdown conventions unless the task
