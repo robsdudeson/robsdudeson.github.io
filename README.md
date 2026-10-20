@@ -1,47 +1,33 @@
 # robsdudeson.github.io
 
-## Welcome to GitHub Pages
+The source for [robsdudeson.github.io](https://robsdudeson.github.io), built with
+[Jekyll](https://jekyllrb.com/) and deployed by GitHub Pages.
 
-You can use the [editor on GitHub](https://github.com/MattyO/mattyo.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+## Write a post
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Add a Markdown file to `_posts/` using the name `YYYY-MM-DD-slug.md`. Include
+Jekyll front matter:
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```yaml
+---
+layout: post
+title: A clear title
+date: 2026-10-20
+tags: example
+published: true
+---
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## Develop locally
 
-### Jekyll Themes
+[Nix](https://nixos.org/download/) provides the Ruby and Bundler toolchain:
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MattyO/mattyo.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
-
-## Local Development
-
-```bash
-> mise install
-> bundle install
-> /bin/jekyll serve
+```sh
+nix develop --command ./bin/verify
+nix develop --command bundle exec jekyll serve
 ```
+
+The first command installs missing Ruby dependencies and builds the site. The
+second starts a local preview server.
+
+See [`AGENTS.md`](AGENTS.md) for contributor and coding-agent guidance.
